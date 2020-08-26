@@ -16,6 +16,10 @@ import (
 	"fmt"
 
 	"k8s.io/client-go/rest"
+
+	v1alpha1typed "github.com/cuijxin/my-kubeapps/cmd/apprepository-controller/pkg/client/clientset/versioned/typed/apprepository/v1alpha1"
+	authorizationv1 "k8s.io/client-go/kubernetes/typed/authorization/v1"
+	corev1typed "k8s.io/client-go/kubernetes/typed/core/v1"
 )
 
 const (
@@ -70,4 +74,12 @@ func NewClusterConfig(inClusterConfig *rest.Config, token string, cluster string
 		config.CAFile = additionalCluster.CAFile
 	}
 	return config, nil
+}
+
+// combinedClientsetInterface provides both the app repository clientset and the corev1 clientset.
+type combinedClientsetInterface interface {
+	KubeappsV1alpha1() v1alpha1typed.KubeappsV1alpha1Interface
+	CoreV1() corev1typed.CoreV1Interface
+	AuthorizationV1() authorizationv1.AuthorizationV1Interface
+	RestClient() rest.Interface
 }
