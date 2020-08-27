@@ -4,6 +4,8 @@ go 1.14
 
 require (
 	github.com/apex/log v1.9.0
+	github.com/docker/cli v0.0.0-20200130152716-5d0cf8839492
+	github.com/docker/compose-on-kubernetes v0.4.24 // indirect
 	github.com/globalsign/mgo v0.0.0-20181015135952-eeefdecb41b8
 	github.com/google/go-cmp v0.4.0
 	github.com/huandu/xstrings v1.3.2 // indirect
