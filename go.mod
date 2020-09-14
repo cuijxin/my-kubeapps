@@ -8,6 +8,7 @@ require (
 	github.com/docker/compose-on-kubernetes v0.4.24 // indirect
 	github.com/globalsign/mgo v0.0.0-20181015135952-eeefdecb41b8
 	github.com/google/go-cmp v0.4.0
+	github.com/gorilla/mux v1.7.3
 	github.com/huandu/xstrings v1.3.2 // indirect
 	github.com/imdario/mergo v0.3.11 // indirect
 	github.com/kubeapps/common v0.0.0-20200304064434-f6ba82e79f47
@@ -16,6 +17,7 @@ require (
 	github.com/sirupsen/logrus v1.6.0
 	github.com/stretchr/testify v1.6.1
 	github.com/unrolled/render v1.0.3
+	github.com/urfave/negroni v1.0.0
 	golang.org/x/net v0.0.0-20191028085509-fe3aa8a45271
 	golang.org/x/time v0.0.0-20200630173020-3af7569d3a1e // indirect
 	google.golang.org/grpc v1.31.0

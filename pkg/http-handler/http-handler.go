@@ -11,17 +11,4 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package dbutils
-
-import "github.com/kubeapps/common/datastore"
-
-const (
-	ChartCollection      = "charts"
-	RepositoryCollection = "repos"
-	ChartFilesCollection = "files"
-)
-
-// MongodbAssetManager struct containing mongodb info
-type MongodbAssetManager struct {
-	mongoConfig datastore.Config
-}
+package httphandler
