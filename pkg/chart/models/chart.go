@@ -10,6 +10,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
+package models
 
 import (
 	"encoding/json"
@@ -23,33 +24,33 @@ import (
 // Repo holds the App repository basic details
 type Repo struct {
 	Namespace string `json:"namespace"`
-	Name string `json:"name"`
-	URL string `json:"url"`
+	Name      string `json:"name"`
+	URL       string `json:"url"`
 }
 
 // RepoInternal holds the App repository details including auth and checksum
 type RepoInternal struct {
-	Namespace string `json:"namespace"`
-	Name string `json:"name"`
-	URL string `json:"url"`
+	Namespace           string `json:"namespace"`
+	Name                string `json:"name"`
+	URL                 string `json:"url"`
 	AuthorizationHeader string `bson:"-"`
-	Checksum string
+	Checksum            string
 }
 
 // Chart is a higher-level representation of a chart package
 type Chart struct {
-	ID string `json:"ID" bson:"chart_id"`
-	Name string `json:"name"`
-	Repo *Repo `json:"repo"`
-	Description string `json:"description"`
-	Home string `json:"home"`
-	Keywords []string `json:"keywords"`
-	Maintainers []chart.Maintainers `json:"maintainers"`
-	Sources []string `json:"sources"`
-	Icon string `json:"icon"`
-	RawIcon []byte `json:"icon_content_type" bson:"icon_content_type,omitempty"`
-	Category string `json:"category"`
-	ChartVersions []ChartVersion `json:"chartVersions"`
+	ID            string              `json:"ID" bson:"chart_id"`
+	Name          string              `json:"name"`
+	Repo          *Repo               `json:"repo"`
+	Description   string              `json:"description"`
+	Home          string              `json:"home"`
+	Keywords      []string            `json:"keywords"`
+	Maintainers   []chart.Maintainers `json:"maintainers"`
+	Sources       []string            `json:"sources"`
+	Icon          string              `json:"icon"`
+	RawIcon       []byte              `json:"icon_content_type" bson:"icon_content_type,omitempty"`
+	Category      string              `json:"category"`
+	ChartVersions []ChartVersion      `json:"chartVersions"`
 }
 
 // ChartIconString is a higher-level representation of a chart package
@@ -61,11 +62,11 @@ type ChartIconString struct {
 
 // ChartVersion is a representation of a specific version of a chart
 type ChartVersion struct {
-	Version string `json:"version"`
-	AppVersion string `json:"app_version"`
-	Created time.Time `json:"created"`
-	Digest string `json:"digest"`
-	URLs []string `json:"urls"`
+	Version    string    `json:"version"`
+	AppVersion string    `json:"app_version"`
+	Created    time.Time `json:"created"`
+	Digest     string    `json:"digest"`
+	URLs       []string  `json:"urls"`
 	// The following three fields get set with the URL paths to the respective
 	// chart files (as opposed to the similar fields on ChartFiles which
 	// contain the actual content).
@@ -76,11 +77,11 @@ type ChartVersion struct {
 
 // ChartFiles holds the README and values for a given chart version
 type ChartFiles struct {
-	ID string `bson:"file_id"`
+	ID     string `bson:"file_id"`
 	Readme string
 	Values string
 	Schema string
-	Repo *Repo
+	Repo   *Repo
 	Digest string
 }
 
@@ -90,7 +91,7 @@ func (a ChartFiles) Value() (driver.Value, error) {
 }
 
 type RepoCheck struct {
-	ID string `bson:"_id"`
+	ID         string    `bson:"_id"`
 	LastUpdate time.Time `bson:"last_update"`
-	Checksum string `bson:"checksum"`
+	Checksum   string    `bson:"checksum"`
 }
